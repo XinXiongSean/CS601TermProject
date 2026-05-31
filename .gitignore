@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.vite/
+.env*
+*.log
+.DS_Store
+.vscode/
+*.lock
+*.docx
+metcs601_TermProject.docx
+metcs601_UsingGitHub.docx

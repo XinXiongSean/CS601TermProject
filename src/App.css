@@ -1,0 +1,23 @@
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: #f9fbfd;
+  color: #111827;
+}
+
+.app-content {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+section {
+  margin-bottom: 2.5rem;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
