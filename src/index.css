@@ -113,6 +113,38 @@ textarea:focus {
   outline: 2px solid #2563eb;
 }
 
+button {
+  border: none;
+  border-radius: 0.85rem;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 0.95rem 1.25rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+button:focus {
+  outline: 2px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+dl {
+  margin: 0;
+}
+
+dt {
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+dd {
+  margin: 0 0 0.75rem 0;
+}
+
 @media (max-width: 680px) {
   .site-nav ul {
     justify-content: center;

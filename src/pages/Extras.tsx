@@ -1,24 +1,26 @@
 function Extras() {
   return (
     <section>
-      <h1>Extra Credit & Advanced Features</h1>
+      <h1>Memory Gallery</h1>
       <p>
-        This page documents optional enhancements that support extra credit and advanced course topics.
+        A collection of meaningful memories presented as a gallery. Replace these examples with
+        your own photos and captions to personalize the site.
       </p>
-      <div className="card-grid">
+      <div className="gallery-grid">
         <article className="card">
-          <h2>HTML5 APIs</h2>
-          <p>
-            Plan to add Drag & Drop, Canvas, SVG, Web Workers, or Geolocation features to improve
-            interactivity and meet extra credit requirements.
-          </p>
+          <img src="/images/project-1.svg" alt="Memory of a study session" />
+          <h2>Study day</h2>
+          <p>A moment from a focused study session while building this portfolio.</p>
         </article>
         <article className="card">
-          <h2>TypeScript + React</h2>
-          <p>
-            The site is built with React and TypeScript to demonstrate modern frontend architecture,
-            type safety, and component-based design.
-          </p>
+          <img src="/images/project-2.svg" alt="Memory of a campus visit" />
+          <h2>Campus walk</h2>
+          <p>Visiting campus in spring and enjoying time between classes.</p>
+        </article>
+        <article className="card">
+          <img src="/images/project-3.svg" alt="Memory of a project milestone" />
+          <h2>Project milestone</h2>
+          <p>Celebrating a milestone after completing a course project.</p>
         </article>
       </div>
     </section>

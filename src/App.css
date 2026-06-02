@@ -21,3 +21,66 @@ h2,
 h3 {
   margin-top: 0;
 }
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.hero-summary {
+  display: grid;
+  gap: 1rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #6366f1;
+  margin-bottom: 0.75rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: 1rem;
+  max-height: 220px;
+  object-fit: cover;
+}
+
+.extras-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.card-demo {
+  display: grid;
+  gap: 1rem;
+}
+
+.card-demo canvas {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  background: #111827;
+}
+
+.success-message {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}

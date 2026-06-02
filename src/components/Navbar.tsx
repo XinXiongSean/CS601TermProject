@@ -7,13 +7,13 @@ const links = [
   { path: '/portfolio', label: 'Portfolio' },
   { path: '/resume', label: 'Resume' },
   { path: '/contact', label: 'Contact' },
-  { path: '/extras', label: 'Extras' }
+  { path: '/gallery', label: 'Gallery' }
 ];
 
 function Navbar() {
   return (
     <header className="site-nav">
-      <div className="site-brand">CS601 Portfolio</div>
+      <div className="site-brand">Sean Xiong Portfolio</div>
       <nav>
         <ul>
           {links.map((link) => (

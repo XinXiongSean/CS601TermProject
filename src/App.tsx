@@ -20,7 +20,7 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/extras" element={<Extras />} />
+          <Route path="/gallery" element={<Extras />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

@@ -1,31 +1,22 @@
 function Home() {
   return (
-    <section>
-      <h1>Welcome to My CS601 Portfolio</h1>
-      <p>
-        This site is a personal portfolio project built for the CS601 term assignment. It shows
-        responsive layout, interactive forms, React routing, and modern JavaScript and TypeScript
-        patterns.
-      </p>
-      <div className="card-grid">
-        <article className="card">
-          <h2>Module highlights</h2>
-          <ul>
-            <li>DOM, events, and form validation</li>
-            <li>HTML5 Drag & Drop, Canvas, SVG, JSON, and Web Workers</li>
-            <li>Advanced CSS layout with Flexbox and Grid</li>
-            <li>TypeScript, React, routing, and component communication</li>
-          </ul>
-        </article>
-        <article className="card">
-          <h2>Project goals</h2>
-          <ul>
-            <li>Deliver a 5-10 page portfolio website</li>
-            <li>Use HTML, CSS, JavaScript, TypeScript, and React</li>
-            <li>Include quality text, navigation, imagery, and accessibility</li>
-            <li>Deploy with GitHub and a public repo</li>
-          </ul>
-        </article>
+    <section className="hero">
+      <div>
+        <p className="eyebrow">CS601 Term Project</p>
+        <h1>Sean Xiong — Web Developer Portfolio</h1>
+        <p>
+          A six-page portfolio built with React and TypeScript, featuring responsive layout,
+          semantic content, interactive form validation, and HTML5 API demos.
+        </p>
+      </div>
+      <div className="hero-summary card">
+        <h2>What this project includes</h2>
+        <ul>
+          <li>Personal biography, interests, and resume</li>
+          <li>Photo gallery and portfolio showcase</li>
+          <li>Accessible contact form with validation</li>
+          <li>Canvas and geolocation demos for extra credit</li>
+        </ul>
       </div>
     </section>
   );
