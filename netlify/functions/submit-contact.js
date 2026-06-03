@@ -28,12 +28,66 @@ exports.handler = async (event) => {
     };
   }
 
-  // In a production app, this is where you would store the submission in a database,
-  // send an email notification, or forward the data to another service.
-  // For the term project, this function confirms the form submission.
-  return {
-    statusCode: 200,
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ success: true, message: 'Form submission received.' }),
-  };
+  const BIN_ID = process.env.JSONBIN_BIN_ID;
+  const API_KEY = process.env.JSONBIN_API_KEY;
+
+  if (!BIN_ID || !API_KEY) {
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Database config missing.' }),
+    };
+  }
+
+  try {
+    // Fetch current data from JSONBin
+    const getResponse = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+      headers: { 'X-Master-Key': API_KEY },
+    });
+
+    if (!getResponse.ok) {
+      throw new Error('Failed to fetch from database.');
+    }
+
+    const data = await getResponse.json();
+    const messages = data.record.messages || [];
+
+    // Add new message
+    messages.push({
+      id: Date.now(),
+      name,
+      email,
+      message,
+      timestamp: new Date().toISOString(),
+    });
+
+    // Save updated data back to JSONBin
+    const putResponse = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Master-Key': API_KEY,
+      },
+      body: JSON.stringify({ messages }),
+    });
+
+    if (!putResponse.ok) {
+      throw new Error('Failed to save to database.');
+    }
+
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ success: true, message: 'Message saved to database.' }),
+    };
+  } catch (error) {
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        error: error instanceof Error ? error.message : 'Server error.',
+      }),
+    };
+  }
 };
+
