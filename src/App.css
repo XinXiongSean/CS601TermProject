@@ -27,32 +27,15 @@ h3 {
 }
 
 .hero {
-.slide {
-  min-width: 100vw;
-  flex: 0 0 100vw;
-  opacity: 0.6;
-  transition: opacity 300ms ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f3f4f6;
-}
-.slide img {
-  width: auto;
-  max-width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: contain;
-  background: transparent;
-}
   margin-bottom: 0.75rem;
+}
+
 .eyebrow {
   text-transform: uppercase;
   font-size: 2.2rem;
   color: #6b7280;
   letter-spacing: 0.05em;
   margin-bottom: 0.5rem;
-}
 }
 
 .littlepoem {
@@ -80,16 +63,15 @@ h3 {
 .carousel {
   margin-top: 1.5rem;
   position: relative;
-  width: 85vw;
-  left: 60%;
+  width: min(1200px, 100%);
+  margin-left: auto;
+  margin-right: auto;
   gap: 16px;
-  transform: translateX(-55%);
   max-height: 800px;
-  /* height: min(48vh, 1200px); */
-  height: 800px;
+  height: auto;
   overflow: hidden;
   border-radius: 0.5rem;
-  background: n;
+  background: transparent;
   box-shadow: 0 6px 20px rgba(2,6,23,0.06);
 }
 .slides {
@@ -97,8 +79,8 @@ h3 {
   transition: transform 0.5s ease;
 }
 .slide {
-  min-width: 100vw;
-  flex: 0 0 100vw;
+  min-width: 100%;
+  flex: 0 0 100%;
   opacity: 0.25;
   transition: opacity 400ms ease;
   display: flex;
@@ -106,11 +88,11 @@ h3 {
   justify-content: center;
 }
 .slide img {
-  width: auto;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   display: block;
   object-fit: cover;
-  max-width: none;
+  max-width: 100%;
 }
 .slide.active {
   opacity: 1;
