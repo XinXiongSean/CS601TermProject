@@ -32,8 +32,13 @@ function Home() {
         const windowH = window.innerHeight || 1;
         const progress = (windowH - rect.top) / (windowH + rect.height);
         const clamped = Math.min(Math.max(progress, 0), 1);
-        // increase amplitude so movement is more responsive
-        const t = (clamped - 0.5) * 950; // larger range for faster response
+        // amplitude depends on screen width so mobile doesn't overshoot
+        const screenW = window.innerWidth || 1024;
+        let amplitude = 600;
+        if (screenW < 480) amplitude = 60;
+        else if (screenW < 768) amplitude = 140;
+        else if (screenW < 1200) amplitude = 360;
+        const t = (clamped - 0.5) * amplitude;
         setTranslate(t);
         ticking = false;
       });
@@ -112,7 +117,7 @@ function Home() {
           <div
             className="scroll-image"
             style={{
-              backgroundImage: `url(/img/boys.png)`,
+              backgroundImage: `url(/img/boyer.png)`,
               transform: `translateY(${translate}px)`,
             }}
             aria-hidden={false}

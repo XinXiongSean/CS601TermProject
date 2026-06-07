@@ -1,17 +1,17 @@
 .scroll-image-section {
   width: 100%;
-  height: 300vh;
+  height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin: 20px 0;
+  margin: 24px 0;
 }
 
 .scroll-image {
-  width: 1000vw;
+  width: 100%;
   max-width: 1400px;
-  height: 260vh;
+  height: 100%;
   background-size: cover;
   background-position: center center;
   border-radius: 6px;
@@ -34,4 +34,22 @@
 .littlepoem {
   max-width: 720px;
   color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .scroll-image-section { height: 55vh; margin: 20px 0; }
+  .hero { padding: 28px 20px; }
+}
+
+@media (max-width: 768px) {
+  .scroll-image-section { height: 48vh; }
+  .scroll-image { border-radius: 4px; }
+  .littlepoem { font-size: 14px; }
+}
+
+@media (max-width: 420px) {
+  .scroll-image-section { height: 40vh; }
+  .hero { padding: 20px 12px; }
+  .littlepoem { font-size: 13px; }
 }
