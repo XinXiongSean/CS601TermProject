@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import './Home.css';
 
 function Home() {
   const images = [
@@ -8,10 +9,43 @@ function Home() {
   ];
 
   const [index, setIndex] = useState(0);
+  const parallaxRef = useRef<HTMLDivElement | null>(null);
+  const [translate, setTranslate] = useState(0);
 
   useEffect(() => {
     const t = setInterval(() => setIndex((i) => (i + 1) % images.length), 3500);
     return () => clearInterval(t);
+  }, []);
+
+  useEffect(() => {
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+        window.requestAnimationFrame(() => {
+        const el = parallaxRef.current;
+        if (!el) {
+          ticking = false;
+          return;
+        }
+        const rect = el.getBoundingClientRect();
+        const windowH = window.innerHeight || 1;
+        const progress = (windowH - rect.top) / (windowH + rect.height);
+        const clamped = Math.min(Math.max(progress, 0), 1);
+        // increase amplitude so movement is more responsive
+        const t = (clamped - 0.5) * 950; // larger range for faster response
+        setTranslate(t);
+        ticking = false;
+      });
+    }
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
   }, []);
 
   return (
@@ -21,11 +55,11 @@ function Home() {
         <h1>Welcome to My Homepage</h1>
         <p>
           I am platform engineer working at the intersection of software development and infrastructure.
-          <br></br>
+          <br />
           This homepage serves as a touchpoint to let others to get to know me better.
-          <br></br>
+          <br />
           It includes sections about my background, interests, and projects.
-          <br></br>
+          <br />
           I wish everyone a wonderful day and may the force be with you! ✨
         </p>
 
@@ -54,16 +88,38 @@ function Home() {
             ))}
           </div>
         </div>
-      </div>
 
-      {/* <div className="hero-summary card">
-        <h2>What this space includes</h2>
-        <ul>
-          <li>Personal biography, interests, and resume</li>
-          <li>Photo gallery and portfolio showcase</li>
-          <li>Accessible contact form with validation</li>
-        </ul>
-      </div> */}
+        <div>
+          <p className='littlepoem'>
+            Do not go gentle into that good night,
+            <br />
+            Old age should burn and rave at close of day;
+            <br />
+            Rage, rage against the dying of the light.
+            <br />
+            <br />
+            Though wise men at their end know dark is right,
+            <br />
+            Because their words had forked no lightning they
+            <br />
+            Do not go gentle into that good night.
+            <br />
+            - Dylan Thomas
+          </p>
+        </div>
+
+        <div className="scroll-image-section" ref={parallaxRef}>
+          <div
+            className="scroll-image"
+            style={{
+              backgroundImage: `url(/img/boys.png)`,
+              transform: `translateY(${translate}px)`,
+            }}
+            aria-hidden={false}
+          />
+        </div>
+
+      </div>
     </section>
   );
 }

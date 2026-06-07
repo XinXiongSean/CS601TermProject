@@ -1,0 +1,37 @@
+.scroll-image-section {
+  width: 100%;
+  height: 300vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.scroll-image {
+  width: 1000vw;
+  max-width: 1400px;
+  height: 260vh;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 6px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  transition: none;
+  will-change: transform;
+}
+
+/* small niceties for hero */
+.hero {
+  padding: 32px 24px;
+}
+
+.eyebrow {
+  font-weight: 600;
+  color: #6b4f76;
+  margin-bottom: 8px;
+}
+
+.littlepoem {
+  max-width: 720px;
+  color: #333;
+}
