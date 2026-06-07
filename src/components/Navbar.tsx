@@ -14,7 +14,7 @@ const links = [
 function Navbar() {
   return (
     <header className="site-nav">
-      <div className="site-brand">Sean Xiong Portfolio</div>
+      <div className="site-brand">May the force be with you</div>
       <nav>
         <ul>
           {links.map((link) => (

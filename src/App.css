@@ -5,6 +5,10 @@
   background: #f9fbfd;
   color: #111827;
 }
+/* prevent page horizontal scroll when carousel expands to viewport width */
+.app-shell {
+  overflow-x: hidden;
+}
 
 .app-content {
   width: min(1200px, calc(100% - 2rem));
@@ -23,21 +27,24 @@ h3 {
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
-  gap: 2rem;
-  align-items: start;
+.slide {
+  min-width: 100vw;
+  flex: 0 0 100vw;
+  opacity: 0.6;
+  transition: opacity 300ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
 }
-
-.hero-summary {
-  display: grid;
-  gap: 1rem;
+.slide img {
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: transparent;
 }
-
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #6366f1;
   margin-bottom: 0.75rem;
 }
 
@@ -53,6 +60,86 @@ h3 {
   border-radius: 1rem;
   max-height: 220px;
   object-fit: cover;
+}
+
+/* Carousel styles for homepage */
+.carousel {
+  margin-top: 1.5rem;
+  position: relative;
+  width: 85vw;
+  left: 60%;
+  gap: 16px;
+  transform: translateX(-55%);
+  max-height: 800px;
+  /* height: min(48vh, 1200px); */
+  height: 800px;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: n;
+  box-shadow: 0 6px 20px rgba(2,6,23,0.06);
+}
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.slide {
+  min-width: 100vw;
+  flex: 0 0 100vw;
+  opacity: 0.25;
+  transition: opacity 400ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide img {
+  width: auto;
+  height: 80%;
+  display: block;
+  object-fit: cover;
+  max-width: none;
+}
+.slide.active {
+  opacity: 1;
+}
+.dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5px;
+  display: flex;
+  gap: 8px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.08);
+  cursor: pointer;
+  padding: 0;
+}
+.dot.active {
+  background: rgba(255,255,255,1);
+  transform: scale(1.05);
+}
+
+/* Improve paragraph readability inside hero */
+.hero > div p {
+  line-height: 1.8;
+  color: #374151;
+  max-width: 256ch;
+  font-size: 1.6rem;
+}
+
+@media (max-width: 900px) {
+  .carousel {
+    width: 100%;
+    left: 0;
+    margin-left: 0;
+    margin-right: 0;
+    height: 300px;
+  }
 }
 
 .extras-grid {
