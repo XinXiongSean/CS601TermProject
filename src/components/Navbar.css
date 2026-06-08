@@ -4,6 +4,16 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+
+  /* --- FIXED NAVBAR EXTENSIONS --- */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;                /* Fixed elements collapse to content width without this */
+  z-index: 1000;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+
 }
 
 .site-nav nav {

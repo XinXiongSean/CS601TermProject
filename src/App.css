@@ -13,7 +13,8 @@
 .app-content {
   width: min(1200px, calc(100% - 2rem));
   margin: 0 auto;
-  padding: 2rem 0;
+  /* add top padding to avoid being covered by fixed navbar */
+  padding: calc(2rem + 64px) 0 2rem;
 }
 
 section {

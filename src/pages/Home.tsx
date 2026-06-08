@@ -57,7 +57,7 @@ function Home() {
     <section className="hero">
       <div>
         <p className="eyebrow">Mr 🐻 Homepage</p>
-        <h1>Welcome to My Homepage</h1>
+        <h1>Welcome to Sean Xiong Homepage</h1>
         <p>
           I am platform engineer working at the intersection of software development and infrastructure.
           <br />

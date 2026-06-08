@@ -53,8 +53,7 @@ function Contact() {
     <section>
       <h1>Contact</h1>
       <p>
-        Use the contact form to send a message. The form uses HTML5 validation and a Netlify serverless
-        API function to process the submission.
+        Use the contact form to send a message. 
       </p>
       <form onSubmit={handleSubmit}>
         <label htmlFor="contact-name">Name</label>

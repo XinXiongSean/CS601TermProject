@@ -5,7 +5,6 @@ const links = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
   { path: '/portfolio', label: 'Portfolio' },
-  { path: '/resume', label: 'Resume' },
   { path: '/contact', label: 'Contact' },
   { path: '/messages', label: 'Messages' },
   { path: '/gallery', label: 'Gallery' }

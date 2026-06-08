@@ -7,7 +7,6 @@ import Extras from './pages/Extras';
 import Home from './pages/Home';
 import Messages from './pages/Messages';
 import Portfolio from './pages/Portfolio';
-import Resume from './pages/Resume';
 import './App.css';
 
 function App() {
@@ -19,7 +18,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/resume" element={<Resume />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/messages" element={<Messages />} />
           <Route path="/gallery" element={<Extras />} />

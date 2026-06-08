@@ -26,8 +26,10 @@ function About() {
         <img className="avatar" src="/img/profile.jpg" alt="Profile" />
         <h2 className="name">Sean Xiong</h2>
         <p className="role">Platform Engineer in Geotechnical Saas </p>
-        <a className="site" href="https://www.linkedin.com/in/xin-sean-xiong-3ab1b2153/">LinkedIn</a>
-        <a className="site" href="mailto:sean.xiong@alumni.utoronto.ca">Email</a>
+        <div className="profile-links">
+          <a className="site" href="https://www.linkedin.com/in/xin-sean-xiong-3ab1b2153/">LinkedIn</a>
+          <a className="site" href="mailto:sean.xiong@alumni.utoronto.ca">Email</a>
+        </div>
       </aside>
 
       <main className="content">
